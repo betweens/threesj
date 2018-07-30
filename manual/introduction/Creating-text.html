@@ -8,27 +8,18 @@
 		<link type="text/css" rel="stylesheet" href="page.css" />
 	</head>
 	<body>
-		<h1>[name]</h1>
+		<h1>创建文字</h1>
 		<div>
-			<p>
-				There are often times when you might need to use text in your three.js application - here are
-				a couple of ways that you can do so.
-			</p>
+			<p>有时你可能需要在three.js应用程序中使用文本 - 这里有几种方法你可以这样做.</p>
 		</div>
 
 		<h2>1. DOM + CSS</h2>
 		<div>
-			<p>
-				Using HTML is generally the easiest and fastest manner to add text. This is the method
-				used for descriptive overlays in most three.js examples.
-			</p>
-			<p>You can add content to a</p>
+			<p>使用HTML通常是添加文本的最简单，最快捷的方式. 是大多数three.js示例中用于描述性叠加的方法.</p>
+			<p>你可以带你添加内容到div标签里面</p>
 			<code>&lt;div id="info"&gt;Description&lt;/div&gt;</code>
 
-			<p>
-				and use CSS markup to position absolutely at a position above all others with a
-				z-index especially if you are running three.js full screen.
-			</p>
+			<p>使用CSS标记绝对位于所有其他位置的z-index位置，特别是如果您正在运行three.js全屏.</p>
 
 			<code>
 #info {
@@ -45,24 +36,23 @@
 
 
 
-		<h2>2. Draw text to canvas and use as a [page:Texture]</h2>
+		<h2>2. 将文本绘制到画布并用作[page:Texture](纹理)</h2>
 		<div>
-			<p>Use this method if you wish to draw text easily on a plane in your three.js scene.</p>
+			<p>如果您希望在three.js场景中的平面上轻松绘制文本，请使用此方法.</p>
 		</div>
 
 
-		<h2>3. Create a model in your favourite 3D application and export to three.js</h2>
+		<h2>3. 在您喜欢的3D应用程序中创建模型并导出到three.js</h2>
 		<div>
-			<p>Use this method if you prefer working with your 3d applications and importing the models to three.js</p>
+			<p>如果您更喜欢使用3d应用程序并将模型导入three.js，请使用此方法</p>
 		</div>
 
 
 
-		<h2>4. Procedural Text Geometry</h2>
+		<h2>4. 文本几何</h2>
 		<div>
 			<p>
-				If you prefer to work purely in THREE.js or to create procedural and dynamic 3D
-				text geometries, you can create a mesh whose geometry is an instance of THREE.TextGeometry:
+				如果您更喜欢纯粹在THREE.js中工作，或者创建程序和动态3D文本几何, 您可以创建一个几何为THREE.TextGeometry实例的网格:
 			</p>
 			<p>
 				<code>new THREE.TextGeometry( text, parameters );</code>

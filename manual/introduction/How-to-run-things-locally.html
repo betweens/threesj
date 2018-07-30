@@ -8,50 +8,32 @@
 		<link type="text/css" rel="stylesheet" href="page.css" />
 	</head>
 	<body>
-		<h1>[name]</h1>
+		<h1>如何在本地运行</h1>
 		<p>
-			If you use just procedural geometries and don't load any textures, webpages should work
-			straight from the file system, just double-click on HTML file in a file manager and it
-			should appear working in the browser (you'll see <em>file:///yourFile.html</em> in the address bar).
+			如果应用程序仅使用几何模型,则不加载任何纹理, 网页应该直接从文件系统中运行, 只需在文件管理器中双击HTML文件，它就会显示在浏览器中工作 (您将在地址栏中看到 <em>file:///yourFile.html</em>).
 		</p>
 
-		<h2>Content loaded from external files</h2>
+		<h2>从外部文件加载的内容</h2>
 		<div>
-			<p>
-				If you load models or textures from external files, due to browsers' [link:http://en.wikipedia.org/wiki/Same_origin_policy same origin policy]
-			 	security restrictions, loading from a file system will fail with a security exception.
-		 	</p>
+			<p>如果从外部文件加载模型或纹理, 由于浏览器[link:http://en.wikipedia.org/wiki/Same_origin_policy Browser]的安全政策限制,从文件系统加载将失败并出现安全性异常</p>
 
-			<p>There are two ways to solve this:</p>
+			<p>有两种方法可以解决这个问题:</p>
 
 			<ol>
-				<li>
-					Change security for local files in a browser. This allows you to access your page as: <code>file:///yourFile.html</code>
-				</li>
-				<li>
-					Run files from a local web server. This allows you to access your page as: <code>http://localhost/yourFile.html</code>
-				</li>
+				<li>更改浏览器中本地文件的安全性. 这使您可以访问您的页面: <code>file:///yourFile.html</code></li>
+				<li>从本地Web服务器运行文件. 这使您可以访问您的页面: <code>http://localhost/yourFile.html</code></li>
 			</ol>
-
-			<p>
-				If you use option 1, be aware that you may open yourself to some vulnerabilities if using
-				the same browser for a regular web surfing. You may want to create a separate browser
-				profile / shortcut used just for local development to be safe. Let's go over each option in turn.
-			</p>
 		</div>
 
 
-		<h2>Run a local server</h2>
+		<h2>运行本地服务器</h2>
 		<div>
 			<p>
-				Many programming languages have simple HTTP servers built in. They are not as full featured as
-				production servers such as [link:https://www.apache.org/ Apache] or [link:https://nginx.org NGINX], however they should be sufficient for testing your
-				three.js application.
-			</p>
+				许多编程语言都内置了简单的HTTP服务器. 它们不像[link:https://www.apache.org/ Apache]或[link:https://nginx.org NGINX]等生产服务器那样功能齐全，但是它们应该足以测试你的three.js应用程序.</p>
 
 			<h3>Node.js server</h3>
 			<div>
-				<p>Node.js has a simple HTTP server package. To install:</p>
+				<p>Node.js有一个简单的HTTP服务器包. To install:</p>
 				<code>npm install http-server -g</code>
 
 				<p>To run (from your local directory):</p>
@@ -60,10 +42,7 @@
 
 			<h3>Python server</h3>
 			<div>
-				<p>
-					If you have [link:http://python.org/ Python] installed, it should be enough to run this
-					from a command line (from your working directory):
-				</p>
+				<p>如果您安装了Python,那么从命令行(从您的工作目录)运行它应该足够了:</p>
 				<code>
 //Python 2.x
 python -m SimpleHTTPServer
@@ -72,14 +51,14 @@ python -m SimpleHTTPServer
 python -m http.server
 				</code>
 
-				<p>This will serve files from the current directory at localhost under port 8000, i.e in the address bar type:</p>
+				<p>本地将启动一个8000端口的服务器, 即地址栏类型:</p>
 
 				<code>http://localhost:8000/</code>
 			</div>
 
 			<h3>Ruby server</h3>
 			<div>
-				<p>If you have Ruby installed, you can get the same result running this instead:</p>
+				<p>如果安装了Ruby, 则可以获得相同的结果:</p>
 				<code>
 ruby -r webrick -e "s = WEBrick::HTTPServer.new(:Port => 8000, :DocumentRoot => Dir.pwd); trap('INT') { s.shutdown }; s.start"
 				</code>
@@ -94,10 +73,7 @@ ruby -r webrick -e "s = WEBrick::HTTPServer.new(:Port => 8000, :DocumentRoot => 
 			<h3>Lighttpd</h3>
 			<div>
 				<p>
-					Lighttpd is a very lightweight general purpose webserver. We'll cover installing it on OSX with
-					HomeBrew here. Unlike the other servers discussed here, lighttpd is a full fledged production
-					ready server.
-				</p>
+					Lighttpd是一个非常轻量级的通用Web服务器. 我们将在这里用HomeBrew在OSX上安装它. 与此处讨论的其他服务器不同,lighttpd是一个完整的生产就绪服务器.</p>
 
 				<ol>
 					<li>
@@ -105,60 +81,48 @@ ruby -r webrick -e "s = WEBrick::HTTPServer.new(:Port => 8000, :DocumentRoot => 
 						<code>brew install lighttpd</code>
 					</li>
 					<li>
-						Create a configuration file called lighttpd.conf in the directory where you want to run
-						your webserver. There is a sample [link:http://redmine.lighttpd.net/projects/lighttpd/wiki/TutorialConfiguration here].
+						在要运行Web服务器的目录中创建名为lighttpd.conf的配置文件. 案例 [link:http://redmine.lighttpd.net/projects/lighttpd/wiki/TutorialConfiguration here].
 					 </li>
 					<li>
-						In the conf file, change the server.document-root to the directory you want to serve files from.
+						在conf文件中, 将server.document-root更改为要从中提供文件的目录.
 					</li>
 					<li>
 						Start it with
 						<code>lighttpd -f lighttpd.conf</code>
 					</li>
-					<li>
-						Navigate to http://localhost:3000/ and it will serve static files from the directory you
-						chose.
-					</li>
+					<li>打开http://localhost:3000/,它将从您选择的目录中提供静态文件.</li>
 				</ol>
 			</div>
 
-		<h2>Change local files security policy</h2>
+		<h2>更改本地文件安全策略</h2>
 		<div>
 			<h3>Safari</h3>
 			<div>
-				<p>
-					Enable the develop menu using the preferences panel, under Advanced -&gt; "Show develop menu
-					in menu bar".
-				</p>
+				<p>使用首选项面板启用开发菜单, 在高级 -&gt; "在菜单栏中显示开发选项菜单".</p>
 
 				<p>
-					Then from the safari "Develop" menu, select "Disable local file restrictions", it is also
-					worth noting safari has some odd behaviour with caches, so it is advisable to use the
-					"Disable caches" option in the same menu; if you are editing &amp; debugging using safari.
+					如果你正在编辑 &amp; 使用safari进行调试. 在safari"开发"菜单中, 选择 "禁用本地文件限制", 同样值得注意的是safari对缓存有一些奇怪的行为, 所以建议在同一菜单中使用"Disable caches"选项; 
 				</p>
 			</div>
 
 
 			<h3>Chrome</h3>
 			<div>
-				<p>Close all running Chrome instances first. The important word here is 'all'.</p>
+				<p>首先关闭所有正在运行的Chrome实例.</p>
 
 				<p>
-					On Windows, you may check for Chrome instances using the Windows Task Manager.
-					Alternatively, if you see a Chrome icon in the system tray, then you may open its context
-					menu and click 'Exit'. This should close all Chrome instances.
+					在Windows上,您可以使用Windows任务管理器检查Chrome实例. 或者,如果您在系统托盘中看到Chrome图标，则可以打开其上下文菜单并单击"退出". 这应关闭所有Chrome实例。
 				</p>
 
-				<p>Then start the Chrome executable with a command line flag:</p>
+				<p>然后使用命令行标志启动Chrome可执行文件:</p>
 
 				<code>chrome --allow-file-access-from-files</code>
 
 				<p>
-					On Windows, probably the easiest is probably to create a special shortcut icon which has
-					added the flag given above (right-click on shortcut -&gt; properties -&gt; target).
+					在Windows上,最简单的可能是创建一个特殊的快捷方式图标,它添加了上面给出的标志 (right-click on shortcut -&gt; properties -&gt; target).
 				</p>
 
-				<p>On Mac OSX, you can do this with</p>
+				<p>在Mac OSX上, 您可以使用</p>
 
 				<code>open /Applications/Google\ Chrome.app --args --allow-file-access-from-files</code>
 			</div>

@@ -67,9 +67,9 @@
 
 		<p>如果您希望保持应用的大小,但以较低的分辨率呈现它,你可以通过使用false调用<strong>setSize</strong> 作为<strong>updateStyle</strong>(第三个参数). 例如, <strong>setSize(window.innerWidth/2, window.innerHeight/2, false)</strong> 如果您的&lt;canvas&gt;具有100％的宽度和高度，则会以半分辨率渲染您的应用。</p>
     
-		<p>Last but not least, we add the <strong>renderer</strong> element to our HTML document. This is a &lt;canvas&gt; element the renderer uses to display the scene to us.</p>
+		<p>最后,我们将 <strong>renderer</strong>元素添加到HTML文档中. 它是渲染器用来向我们显示场景的&lt;canvas&gt;元素.</p>
 
-		<p><em>"That's all good, but where's that cube you promised?"</em> Let's add it now.</p>
+		<p><em>"一切准备就绪",</em> 让我们来显示一个立方体.</p>
 
 		<code>
 		var geometry = new THREE.BoxGeometry( 1, 1, 1 );

@@ -23,49 +23,40 @@
 
 		<h3>[property:Boolean isCamera]</h3>
 		<p>
-			Used to check whether this or derived classes are cameras. Default is *true*.<br /><br />
-
-			You should not change this, as it used internally by the renderer for optimisation.
+			用于检查此类或派生类是否为摄像机. 默认为true.<br /><br />
+			您不应该更改此内容，因为渲染器在内部使用它进行优化.
 		</p>
 
 		<h3>[property:Layers layers]</h3>
 		<p>
-		The [page:Layers layers] that the camera is a member of. This is an inherited
-		property from [page:Object3D].<br /><br />
-
-		Objects must share at least one layer with the camera to be seen
-		when the camera's viewpoint is rendered.
+    相机所属的图层, 这是[page:Object3D]的继承属性.<br /><br />
+		在渲染相机的视点时,对象必须与相机共享至少一个图层.
 		</p>
 
 		<h3>[property:Matrix4 matrixWorldInverse]</h3>
 		<p>
-			This is the inverse of matrixWorld. MatrixWorld contains the Matrix which has
-			the world transform of the Camera.
+			这是matrixWorld的反转. MatrixWorld包含Matrix,它具有Camera的世界坐标变换.
 		</p>
 
 		<h3>[property:Matrix4 projectionMatrix]</h3>
-		<p>This is the matrix which contains the projection.</p>
+		<p>这是包含投影的矩阵.</p>
 
 
-		<h2>Methods</h2>
-		<p>See the base [page:Object3D] class for common methods.</p>
+		<h2>方法</h2>
+		<p>有关常用方法,请参阅基础[page:Object3D]类</p>
 
-		<h3>[method:Camera clone]( )</h3>
+		<h3>[method:Camera clone]()</h3>
 		<p>
-			Return a new camera with the same properties as this one.
+			返回具有与此相同属性的新相机.
 		</p>
 
 		<h3>[method:Camera copy]( [param:Camera source], [param:Boolean recursive] )</h3>
-		<p>
-		Copy the properties from the source camera into this one.
-		</p>
+		<p>将源摄像机中的属性复制到此摄像机中.</p>
 
 		<h3>[method:Vector3 getWorldDirection]( [param:Vector3 target] )</h3>
 		<p>
-		[page:Vector3 target] — the result will be copied into this Vector3. <br /><br />
-
-		Returns a [page:Vector3] representing the world space direction in which the camera is looking.
-		(Note: A camera looks down its local, negative z-axis).<br /><br />
+		[page:Vector3 target] — 结果将被复制到此Vector3中. <br /><br />
+		返回表示摄像机正在查看的世界坐标空间方向的Vector3.(注意:相机向下看其局部的负z轴).<br /><br />
 		</p>
 
 		<h2>Source</h2>

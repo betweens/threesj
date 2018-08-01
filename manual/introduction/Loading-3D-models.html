@@ -10,48 +10,36 @@
 </head>
 
 <body>
-  <h1>[name]</h1>
+  <h1>加载3D模型</h1>
   <br />
 
   <p>
-    3D models are available in hundreds of file formats, each with different
-    purposes, assorted features, and varying complexity. Although
+    3D模型有数百种文件格式, 每个具有不同的用途,各种功能,和不同的复杂性. 虽然
     <a href="https://github.com/mrdoob/three.js/tree/dev/examples/js/loaders" target="_blank" rel="noopener">
-    three.js provides many loaders</a>, choosing the right format and
-    workflow will save time and frustration later on. Some formats are
-    difficult to work with, inefficient for realtime experiences, or simply not
-    fully supported at this time.
+    three.js 提供许多 loaders</a>, 选择正确的格式和工作流程将在以后节省时间. 有些格式难以使用, 实时体验效率低下，或者此时根本没有完全支持.
   </p>
 
   <p>
-    This guide provides a workflow recommended for most users, and suggestions
-    for what to try if things don't go as expected.
+   本指南提供了针对大多数用户推荐的工作流程,以及如果事情未按预期进行操作的建议.
   </p>
 
-  <h2>Before we start</h2>
+  <h2>在我们开始之前</h2>
 
   <p>
-    If you're new to running a local server, begin with
+    如果您不熟悉运行本地服务器, begin with
     [link:#manual/introduction/How-to-run-things-locally how to run things locally]
-    first. Many common errors viewing 3D models can be avoided by hosting files
-    correctly.
+    第一, 通过正确托管文件,可以避免查看3D模型的许多常见错误.
   </p>
 
-  <h2>Recommended workflow</h2>
+  <h2>推荐工作流</h2>
 
   <p>
-    Where possible, we recommend using glTF (GL Transmission Format). Both
-    <small>.GLB</small> and <small>.GLTF</small> versions of the format are
-    well supported. Because glTF is focused on runtime asset delivery, it is
-    compact to transmit and fast to load. Features include meshes, materials,
-    textures, skins, skeletons, morph targets, animations, lights, and
-    cameras.
+    在可能的情况下,我们建议使用glTF(GL传输格式). Both
+    <small>.GLB</small> and <small>.GLTF</small> 格式的版本得到很好的支持. 因为glTF专注于运行时资源交互, 它传输紧凑,加载速度快. 功能包括网格,材质,纹理,皮肤,骨架,变形目标,动画,灯光和相机.
   </p>
 
   <p>
-    Public-domain glTF files are available on sites like
-    <a href="https://sketchfab.com/models?features=downloadable&sort_by=-likeCount&type=models" target="_blank" rel="noopener">
-    Sketchfab</a>, or various tools include glTF export:
+   公共域glTF文件可在<a href="https://sketchfab.com/models?features=downloadable&sort_by=-likeCount&type=models" target="_blank" rel="noopener">Sketchfab</a>等网站上获得,或者各种工具包括glTF导出
   </p>
 
   <ul>
@@ -71,12 +59,9 @@
     <a href="https://github.com/KhronosGroup/glTF/issues/1051" target="_blank" rel="noopener">the glTF roadmap thread</a>.
   </p>
 
-  <p>
-    When glTF is not an option, popular formats such as FBX, OBJ, or COLLADA
-    are also available and regularly maintained.
-  </p>
+  <p>当glTF不是一个选项时,FBX,OBJ或COLLADA等流行格式也可以定期维护.</p>
 
-  <h2>Troubleshooting</h2>
+  <h2>常见问题</h2>
 
   <p>
     You've spent hours modeling an artisanal masterpiece, you load it into
@@ -86,11 +71,10 @@
 
   <ol>
     <li>
-      Check the JavaScript console for errors, and make sure you've used an
-      <em>onError</em> callback when calling <em>.load()</em> to log the result.
+      检查JavaScript控制台是否有错误，并确保在调用<em>.load()</em>时记录结果时使用了<em>onError</em>回调
     </li>
     <li>
-      View the model in another application. For glTF, drag-and-drop viewers
+      在另一个应用程序中查看模型. For glTF, drag-and-drop viewers
       are available for
       <a href="https://gltf-viewer.donmccurdy.com/" target="_blank" rel="noopener">three.js</a> and
       <a href="http://sandbox.babylonjs.com/" target="_blank" rel="noopener">babylon.js</a>. If the model
@@ -100,28 +84,20 @@
       filing a bug with the application used to create the model.
     </li>
     <li>
-      Try scaling the model up or down by a factor of 1000. Many models are
-      scaled differently, and large models may not appear if the camera is
-      inside the model.
+      尝试将模型向上或向下缩放1000倍。许多模型的缩放比例不同，如果相机在模型内部，则可能不会出现大型模型.
     </li>
     <li>
-      Look for failed texture requests in the network tab, like
-      <em>C:\\Path\To\Model\texture.jpg</em>. Use paths relative to your
-      model instead, such as <em>images/texture.jpg</em> — this may require
-      editing the model file in a text editor.
+      在网络选项卡中查找失败的纹理请求, like
+      <em>C:\\Path\To\Model\texture.jpg</em>. 使用相对于模型的路径,例如 <em>images/texture.jpg</em> — 这可能需要在文本编辑器中编辑模型文件.
     </li>
   </ol>
 
-  <h2>Asking for help</h2>
+  <h2>寻求帮助</h2>
 
   <p>
-    If you've gone through the troubleshooting process above and your model
-    still isn't working, the right approach to asking for help will get you to
-    a solution faster. Post a question on the
-    <a href="https://discourse.threejs.org/" target="_blank" rel="noopener">three.js forum</a> and, whenever possible,
-    include your model (or a simpler model with the same problem) in any formats
-    you have available. Include enough information for someone else to reproduce
-    the issue quickly — ideally, a live demo.
+    如果您已完成上述故障排除过程，但您的模型仍无法正常工作, 寻求帮助的正确方法将使您更快地获得解决方案. 在three.js论坛上
+    <a href="https://discourse.threejs.org/" target="_blank" rel="noopener">three.js论坛</a> 发布一个问题，并尽可能,
+    以您可用的任何格式包含您的模型（或具有相同问题的更简单模型）. 为其他人提供足够的信息以快速重现问题 - 最好是现场演示.
   </p>
 
 </body>

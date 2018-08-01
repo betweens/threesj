@@ -97,7 +97,7 @@ function onDocumentLoad( event ) {
 
 	button.addEventListener( 'click', function ( event ) {
 
-		window.open( 'https://github.com/mrdoob/three.js/blob/dev/docs/' + section + '/' + path + '.html' );
+		window.open( 'https://github.com/betweens/threesjs-docs/blob/master/' + section + '/' + path + '.html' );
 
 	}, false );
 

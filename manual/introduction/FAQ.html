@@ -10,46 +10,43 @@
 	<body>
 		<h1>[name]</h1>
 
-		<h2>Which 3D model format is best supported?</h2>
+		<h2>最好支持哪种3D模型格式?</h2>
 		<div>
 			<p>
-				The recommended format for importing and exporting assets is glTF (GL Transmission Format). Because glTF is focused on runtime asset delivery, it is compact to transmit and fast to load.
+				导入和导出资源的推荐格式是glTF(GL传输格式). 因为glTF专注于运行时资源交互, 文件小传速快.
 			</p>
 			<p>
-				three.js provides loaders for many other popular formats like FBX, Collada or OBJ as well. Nevertheless, you should always try to establish a glTF based workflow in your projects first. For more information, see [link:#manual/introduction/Loading-3D-models loading 3D models].
+				three.js为许多其他流行格式提供加载器,如FBX,Collada或OBJ. 不过,您应该首先尝试在项目中建立基于glTF的工作流程. 更多信息, 参考 [link:#manual/introduction/Loading-3D-models loading 3D models].
 			</p>
 		</div>
 
-		<h2>Why are there meta viewport tags in examples?</h2>
+		<h2>为什么示例中有 meta viewport 标记?</h2>
 		<div>
 			<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>viewport<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0<span class="pl-pds">"</span></span>&gt;</pre></div>
 
-				<p>These tags control viewport size and scale for mobile browsers (where page content may be rendered at different size than visible viewport).</p>
+				<p>这些标签控制移动浏览器的视口大小和比例(其中页面内容可以以与可见视口不同的大小呈现).</p>
 
 				<p>[link:https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/UsingtheViewport.html Safari: Using the Viewport]</p>
 
 				<p>[link:https://developer.mozilla.org/en/Mobile/Viewport_meta_tag MDN: Using the viewport meta tag]</p>
 		</div>
 
-		<h2>How can scene scale be preserved on resize?</h2>
+		<h2>如何在调整大小时保留场景比例?</h2>
 		<p>
-			We want all objects, regardless of their distance from the camera, to appear the same size, even as the window is resized.
-
-			The key equation to solving this is this formula for the visible height at a given distance:
-
+		  我们希望所有对象（无论与相机的距离如何）都显示相同的大小,即使窗口调整大小也是如此.
+			解决这个问题的关键方程是给定距离处可见高度的公式:
 			<code>
-visible_height = 2 * Math.tan( ( Math.PI / 180 ) * camera.fov / 2 ) * distance_from_camera;
+        visible_height = 2 * Math.tan( ( Math.PI / 180 ) * camera.fov / 2 ) * distance_from_camera;
 			</code>
-			If we increase the window height by a certain percentage, then what we want is the visible height at all distances
-			to increase by the same percentage.
+			如果我们将window高度增加一定百分比，那么我们想要的是所有距离的可见高度增加相同的百分比.
 
-			This can not be done by changing the camera position. Instead you have to change the camera field-of-view.
+			通过更改相机位置无法完成此操作. 相反,你必须改变相机视野。
 			[link:http://jsfiddle.net/Q4Jpu/ Example].
 		</p>
 
-		<h2>Why is part of my object invisible?</h2>
+		<h2>为什么我的对象的一部分不可见?</h2>
 		<p>
-			This could be because of face culling. Faces have an orientation that  decides which side is which. And the culling removes the backside in normal circumstances. To see if this is your problem, change the material side to THREE.DoubleSide.
+			这可能是因为面部剔除. 面具有一个方向,决定哪一面是哪一面. 在正常情况下,剔除会消除背面. 要查看这是否是您的问题,请将材料面更改为THREE.DoubleSide.
 			<code>material.side = THREE.DoubleSide</code>
 		</p>
 	</body>

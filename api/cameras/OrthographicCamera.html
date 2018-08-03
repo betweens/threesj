@@ -10,19 +10,18 @@
 	<body>
 		[page:Object3D] &rarr; [page:Camera] &rarr;
 
-		<h1>[name]</h1>
+		<h1>[name](正交相机)</h1>
 
 		<p class="desc">
-			Camera that uses [link:https://en.wikipedia.org/wiki/Orthographic_projection orthographic projection].<br /><br />
+			使用[link:https://en.wikipedia.org/wiki/Orthographic_projection orthographic projection](正交投影)的相机.<br /><br />
 
-			In this projection mode, an object's size in the rendered image stays constant
-			regardless of its distance from the camera.<br /><br />
+			在此投影模式下,无论距离相机的距离如何,渲染图像中的对象大小都保持不变 🙌.<br /><br />
 
-			This can be useful for rendering 2D scenes and UI elements, amongst other things.
+			这对于渲染2D场景和UI元素等非常有用.
 		</p>
 
 
-		<h2>Example</h2>
+		<h2>例子 🌰</h2>
 
 		<p>[example:canvas_camera_orthographic camera / orthographic ]</p>
 		<p>[example:webgl_camera camera ]</p>
@@ -40,7 +39,7 @@
 scene.add( camera );</code>
 
 
-		<h2>Constructor</h2>
+		<h2>构造函数</h2>
 
 
 		<h3>[name]( [param:Number left], [param:Number right], [param:Number top], [param:Number bottom], [param:Number near], [param:Number far] )</h3>
@@ -52,44 +51,41 @@ scene.add( camera );</code>
 		near — Camera frustum near plane.<br />
 		far — Camera frustum far plane.<br /><br />
 
-		Together these define the camera's [link:https://en.wikipedia.org/wiki/Viewing_frustum viewing frustum].
+		些一起定义了相机的[link:https://en.wikipedia.org/wiki/Viewing_frustum viewing frustum](视锥体).
 		</p>
 
 
-		<h2>Properties</h2>
+		<h2>属性</h2>
 		<p>
-			See the base [page:Camera] class for common properties.<br>
- 			Note that after making changes to most of these properties you will have to call
- 			[page:OrthographicCamera.updateProjectionMatrix .updateProjectionMatrix] for the changes to take effect.
+			有关常用属性,请参阅的Camera基本类.<br>
+ 			请注意,在对大多数这些属性进行更改后,您必须调用[page:OrthographicCamera.updateProjectionMatrix .updateProjectionMatrix]才能使更改生效.
 		</p>
 
 		<h3>[property:Float bottom]</h3>
-		<p>Camera frustum bottom plane.</p>
+		<p>相机视锥体底部平面.</p>
 
 		<h3>[property:Float far]</h3>
 		<p>
-		Camera frustum far plane. Default is *2000*.<br /><br />
-
-		The valid range is between the current value of the [page:.near near] plane and infinity.
+		相机视锥远平面. 默认值为*2000*.<br /><br />
+		有效范围介于[page:.near near](近平面)的当前值和无穷远之间.
 		</p>
 
 		<h3>[property:Boolean isOrthographicCamera]</h3>
 		<p>
-			Used to test whether this or derived classes are OrthographicCameras. Default is *true*.<br /><br />
+			用于测试此类或派生类是否为OrthographicCameras. 默认是 *true*.<br /><br />
 
-			This should not be changed as it is used internally by the renderer for optimisation.
+			这不应该更改,因为渲染器在内部使用它进行优化.
 		</p>
 
 		<h3>[property:Float left]</h3>
-		<p>Camera frustum left plane.</p>
+		<p>相机视锥体左侧面.</p>
 
 		<h3>[property:Float near]</h3>
 		<p>
-			Camera frustum near plane. Default is *0.1*.<br /><br />
+			相机视锥体近平面. 默认值 *0.1*.<br /><br />
 
-			The valid range is between 0 and the current value of the [page:.far far] plane.
-			Note that, unlike for the [page:PerspectiveCamera], *0* is a valid value for an
-			OrthographicCamera's near plane.
+			有效范围介于0和[page:.far far](远平面)的当前值之间.
+		  请注意,与[page:PerspectiveCamera]不同, *0* 是一个有效值OrthographicCamera的近平面.
 		</p>
 
 		<h3>[property:Float right]</h3>
@@ -104,8 +100,8 @@ scene.add( camera );</code>
 		<h3>[property:number zoom]</h3>
 		<p>Gets or sets the zoom factor of the camera. Default is *1*.</p>
 
-		<h2>Methods</h2>
-		<p>See the base [page:Camera] class for common methods.</p>
+		<h2>方法</h2>
+		<p>有关常用方法,请参阅[page:Camera]基类.</p>
 
 		<h3>[method:null setViewOffset]( [param:Float fullWidth], [param:Float fullHeight], [param:Float x], [param:Float y], [param:Float width], [param:Float height] )</h3>
 		<p>
@@ -123,18 +119,14 @@ scene.add( camera );</code>
 
 		<h3>[method:null clearViewOffset]()</h3>
 		<p>
-		Removes any offset set by the .setViewOffset method.
+		删除.setViewOffset方法设置的任何偏移量.
 		</p>
 
 		<h3>[method:null updateProjectionMatrix]()</h3>
-		<p>
-		Updates the camera projection matrix. Must be called after any change of parameters.
-		</p>
+		<p>更新相机投影矩阵.必须在更改参数后调用.</p>
 
 		<h3>[method:JSON toJSON]()</h3>
-		<p>
-		Return the camera's data in JSON format.
-		</p>
+		<p>以JSON格式返回camera的数据.</p>
 
 
 		<h2>Source</h2>

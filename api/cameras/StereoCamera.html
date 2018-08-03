@@ -9,11 +9,10 @@
 	</head>
 	<body>
 
-		<h1>[name]</h1>
+		<h1>[name](立体像机)</h1>
 
 		<p class="desc">
-		Dual [page:PerspectiveCamera PerspectiveCamera]s used for effects such as
-		[link:https://en.wikipedia.org/wiki/Anaglyph_3D 3D Anaglyph] or [link:https://en.wikipedia.org/wiki/parallax_barrier Parallax Barrier].
+     用于[link:https://en.wikipedia.org/wiki/Anaglyph_3D 3D Anaglyph](立体效果)或[link:https://en.wikipedia.org/wiki/parallax_barrier Parallax Barrier](视差屏障)等效果的双视角摄影机。
 		</p>
 
 
@@ -24,11 +23,11 @@
 		<p>[example:webgl_effects_stereo effects / stereo ]</p>
 
 		<p>
-		This class is used internally in the files<br /><br />
+		此类在文件内部使用<br /><br />
 		[link:https://github.com/mrdoob/three.js/blob/master/examples/js/effects/AnaglyphEffect.js examples/js/effects/AnaglyphEffect.js]<br /><br />
 		[link:https://github.com/mrdoob/three.js/blob/master/examples/js/effects/ParallaxBarrierEffect.js examples/js/effects/ParallaxBarrierEffect.js]<br /><br />
 		[link:https://github.com/mrdoob/three.js/blob/master/examples/js/effects/StereoEffect.js examples/js/effects/StereoEffect.js]<br /><br />
-		used in the above examples.
+		用在上面的例子中.
 		</p>
 
 
@@ -45,19 +44,17 @@
 		<p>Default is *0.064*.</p>
 
 		<h3>[property:PerspectiveCamera cameraL]</h3>
-		<p>Left camera. This is added to [page:Layers layer 1] - objects to be rendered
-		by the left camera must also be added to this layer.</p>
+		<p>左侧相机.这将添加到[page:Layers layer 1]第1层 - 左侧摄像头要渲染的对象也必须添加到此层.</p>
 
 		<h3>[property:PerspectiveCamera cameraR]</h3>
-		<p>Right camera.This is added to [page:Layers layer 2] - objects to be rendered
-		by the right camera must also be added to this layer.</p>
+		<p>右侧相机.它被添加到[page:Layers layer 2](第2层) - 右边相机要渲染的对象也必须添加到该图层.</p>
 
 
 		<h2>Methods</h2>
 
 		<h3>[method:null update]( [param:PerspectiveCamera camera] )</h3>
 		<p>
-		Update the stereo cameras based on the camera passed in.
+		根据传入的摄像机更新立体摄像机.
 		</p>
 
 		<h2>Source</h2>

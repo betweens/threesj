@@ -10,17 +10,15 @@
 	<body>
 		[page:Object3D] &rarr; [page:Camera] &rarr;
 
-		<h1>[name]</h1>
+		<h1>[name](透视相机)</h1>
 
 		<p class="desc">
-			Camera that uses [link:https://en.wikipedia.org/wiki/Perspective_(graphical) perspective projection].<br /><br />
-
-			This projection mode is designed to mimic the way the human eye sees. It is the most
-			common projection mode used for rendering a 3D scene.
+      使用[link:https://en.wikipedia.org/wiki/Perspective_(graphical) perspective projection](透视投影)的相机.<br /><br />
+		  这种投影模式旨在模仿人眼看到的方式. 它是用于渲染3D场景的最常见投影模式.
 		</p>
 
 
-		<h2>Example</h2>
+		<h2>案例</h2>
 
 		<p>[example:canvas_geometry_birds geometry / birds ]</p>
 		<p>[example:canvas_geometry_cube geometry / cube ]</p>
@@ -34,34 +32,33 @@
 scene.add( camera );</code>
 
 
-		<h2>Constructor</h2>
+		<h2>构造函数</h2>
 
 		<h3>[name]( [param:Number fov], [param:Number aspect], [param:Number near], [param:Number far] )</h3>
 		<p>
-		fov — Camera frustum vertical field of view.<br />
+		fov — 相机的可视角度.<br />
 		aspect — Camera frustum aspect ratio.<br />
-		near — Camera frustum near plane.<br />
-		far — Camera frustum far plane.<br /><br />
+		near — 相机的近平面.<br />
+		far — 相机的远平面.<br /><br />
 
-			Together these define the camera's [link:https://en.wikipedia.org/wiki/Viewing_frustum viewing frustum].
+		这些一起定义了相机的[link:https://en.wikipedia.org/wiki/Viewing_frustum viewing frustum](视锥体).
 		</p>
 
 
-		<h2>Properties</h2>
+		<h2>属性</h2>
 		<p>
-			See the base [page:Camera] class for common properties.<br>
-			Note that after making changes to most of these poperties you will have to call
-			[page:PerspectiveCamera.updateProjectionMatrix .updateProjectionMatrix] for the changes to take effect.
+			有关常用属性,请参阅Camera的基类.<br>
+			请注意,在对大多数这些属性进行更改后,您必须调用.updateProjectionMatrix才能使更改生效.
 		</p>
 
 		<h3>[property:Float aspect]</h3>
-		<p>Camera frustum aspect ratio, usually the canvas width / canvas height. Default is *1* (square canvas).</p>
+		<p>aspect为width/height,通常设置为canvas元素的高宽比. 默认是 *1* (square canvas).</p>
 
 		<h3>[property:Float far]</h3>
 		<p>
 			Camera frustum far plane. Default is *2000*.<br /><br />
 
-			The valid range is between the current value of the [page:.near near] plane and infinity.
+			有效范围介于[page:.near near](近平面)的当前值和无穷远之间.
 		</p>
 
 		<h3>[property:Float filmGauge]</h3>
@@ -71,50 +68,42 @@ scene.add( camera );</code>
 		<p>Horizontal off-center offset in the same unit as .filmGauge. Default is *0*.</p>
 
 		<h3>[property:Float focus]</h3>
-		<p>Object distance used for stereoscopy and depth-of-field effects.
-			This parameter does not influence the projection matrix unless a [page:StereoCamera] is being used.
-			Default is *10*.
-		</p>
+		<p>用于立体视觉和景深效果的物距. 除非使用[page:StereoCamera],否则此参数不会影响投影矩阵. 默认值为10.</p>
 
 		<h3>[property:Float fov]</h3>
-		<p>Camera frustum vertical field of view, from bottom to top of view, in degrees. Default is *50*.</p>
+		<p> 相机视锥体垂直视野,从底部到顶部的视图, 以度为单位. 默认值为50.</p>
 
 		<h3>[property:Boolean isPerspectiveCamera]</h3>
 		<p>
-			Used to test whether this or derived classes are PerspectiveCameras. Default is *true*.<br /><br />
-
-			This should not be changed as it is used internally by the renderer for optimisation.
+			用于测试此类或派生类是否为PerspectiveCameras. Default is *true*.<br /><br />
+			这不应该更改,因为渲染器在内部使用它进行优化.
 		</p>
 
 
 		<h3>[property:Float near]</h3>
 		<p>
-			Camera frustum near plane. Default is *0.1*.<br /><br />
-
-			The valid range is greater than 0 and less than the current value of the [page:.far far] plane.
-			Note that, unlike for the [page:OrthographicCamera], *0* is <em>not</em> a valid value
-			for a PerspectiveCamera's near plane.
+			相机的近平面. Default is *0.1*.<br /><br />
+			有效范围大于0且小于[page:.far far]远平面的当前值.
+			请注意,与[page:OrthographicCamera]不同,0<em>不是</em>PerspectiveCamera近平面的有效值.
 		</p>
 
 		<h3>[property:Object view]</h3>
 		<p>
-			Frustum window specification or null.
-			This is set using the [page:PerspectiveCamera.setViewOffset .setViewOffset] method
-			and cleared using [page:PerspectiveCamera.clearViewOffset .clearViewOffset].
+			Frustum窗口规范或null. 这是使用.setViewOffset方法设置的,并使用.clearViewOffset清除.
 		</p>
 
 		<h3>[property:number zoom]</h3>
-		<p>Gets or sets the zoom factor of the camera. Default is *1*.</p>
+		<p>获取或设置摄像机的缩放系数. Default is *1*.</p>
 
 
-		<h2>Methods</h2>
+		<h2>方法</h2>
 		<p>See the base [page:Camera] class for common methods.</p>
 
 		<h3>[method:null clearViewOffset]()</h3>
-		<p>Removes any offset set by the [page:PerspectiveCamera.setViewOffset .setViewOffset] method.</p>
+		<p>删除.setViewOffset方法设置的任何偏移量.</p>
 
 		<h3>[method:Float getEffectiveFOV]()</h3>
-		<p>Returns the current vertical field of view angle in degrees considering .zoom.</p>
+		<p>以.zoom为单位返回当前垂直视角范围(以度为单位).</p>
 
 		<h3>[method:Float getFilmHeight]()</h3>
 		<p>
@@ -129,31 +118,31 @@ scene.add( camera );</code>
 		</p>
 
 		<h3>[method:Float getFocalLength]()</h3>
-		<p>Returns the focal length of the current .fov in respect to .filmGauge.</p>
+		<p>返回.filmGauge当前.fov的焦距.</p>
 
 		<h3>[method:null setFocalLength]( [param:Float focalLength] )</h3>
 		<p>
-		Sets the FOV by focal length in respect to the current [page:PerspectiveCamera.filmGauge .filmGauge].<br /><br />
+		根据当前[page:PerspectiveCamera.filmGauge .filmGauge]的焦距设置FOV.<br /><br />
 
-		By default, the focal length is specified for a 35mm (full frame) camera.
+		默认情况下,焦距是为35mm(全画幅)相机指定的.
 		</p>
 
 		<h3>[method:null setViewOffset]( [param:Float fullWidth], [param:Float fullHeight], [param:Float x], [param:Float y], [param:Float width], [param:Float height] )</h3>
 		<p>
-		fullWidth — full width of multiview setup<br />
-		fullHeight — full height of multiview setup<br />
-		x — horizontal offset of subcamera<br />
-		y — vertical offset of subcamera<br />
-		width — width of subcamera<br />
-		height — height of subcamera
+		fullWidth — 全景多视图设置<br />
+		fullHeight — 多视图设置的全高<br />
+		x — 子摄像机的水平偏移<br />
+		y — 子摄像机的垂直偏移<br />
+		width — 子摄像机的宽度<br />
+		height — 子摄像机的高度
 		</p>
 
 		<p>
-		Sets an offset in a larger frustum. This is useful for multi-window or multi-monitor/multi-machine setups.
+		 设置一个在更大的视锥偏移. 这对于多窗口或多显示器/多机器设置很有用.
 		</p>
 
 		<p>
-		For example, if you have 3x2 monitors and each monitor is 1920x1080 and the monitors are in grid like this:<br />
+		例如,如果你有3x2显示器，每个显示器是1920x1080,显示器是这样的网格:<br />
 
 		<pre>
 +---+---+---+
@@ -163,8 +152,7 @@ scene.add( camera );</code>
 +---+---+---+
 		</pre>
 
-		then for each monitor you would call it like this:<br />
-
+		对于每个显示器,你可以这样调用:<br />
 		<code>var w = 1920;
 var h = 1080;
 var fullWidth = w * 3;
@@ -184,17 +172,17 @@ camera.setViewOffset( fullWidth, fullHeight, w * 1, h * 1, w, h );
 camera.setViewOffset( fullWidth, fullHeight, w * 2, h * 1, w, h );
 </code>
 
-		Note there is no reason monitors have to be the same size or in a grid.
+		请注意,监视器无需具有相同的大小或网格.
 		</p>
 
 		<h3>[method:null updateProjectionMatrix]()</h3>
 		<p>
-		Updates the camera projection matrix. Must be called after any change of parameters.
+     更新相机投影矩阵. 必须在更改参数后调用.
 		</p>
 
 		<h3>[method:JSON toJSON]()</h3>
 		<p>
-		Return camera data in JSON format.
+		以JSON格式返回相机数据.
 		</p>
 
 		<h2>Source</h2>
